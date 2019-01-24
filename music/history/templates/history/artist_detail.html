@@ -1,0 +1,16 @@
+<h1>{{ artist.artist_name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'history:addAlbum' artist.id %}" method="post">
+{% csrf_token %}
+<input type="text" name="albumTitle"/>
+<input type="type" name="albumDate" />
+  <input type="submit" value="Add New Album"/>
+</form>
+
+<h5>{{ artist.artist_name }}'s Albums: </h5>
+
+{% for album in albums %}
+    <a href="{% url 'history:album_detail' album.id %}">{{ album.album_name }}</a><br />
+    {% endfor %}

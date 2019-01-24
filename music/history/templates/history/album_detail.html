@@ -1,0 +1,7 @@
+<h1>{{ album.album_name }}</h1>
+
+{% for song in songs %}
+<ul>
+<li>Track#{{ song.id }}: {{ song.song_name }}</li>
+{% endfor %}
+</ul>
